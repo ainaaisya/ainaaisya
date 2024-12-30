@@ -1,32 +1,31 @@
-## Hi there 👋
-This is Aina Aisya! I shared and took credit of this project as I hugely contributed to the overall code. The success of this project entirely relied on the help of my teammates, Jacyntha Eleanor, Anrianih Yusof, Nurul Fatihah, and Nur Izzatul Natasha of Universiti Malaysia Sarawak (UNIMAS)
+## Hi there!
 
 # MD5 Cracker Application
 
-This guide will help you set up and run the MD5 Cracker application. The app uses distributed computing and multithreading to crack MD5 hashes.
+This README provides step-by-step instructions to set up and run the MD5 Cracker application. The application is designed to crack MD5 hashes using distributed computing and multithreading.
 
-## What You Need
+## Prerequisites
 
-Before starting, make sure your computer has:
+Before you begin, ensure that you have the following installed on your machine:
 
-- **Java Development Kit (JDK)** version 8 or later.
-- **RMI Registry** installed.
-- Some experience using the command line.
+- **Java Development Kit (JDK)** (version 8 or later)
+- **RMI Registry**
+- A basic understanding of the command line/terminal
 
-## Files in the Application
+## Application Components
 
-The application has four main files:
+The application consists of the following Java files:
 
-1. **MD5CrackerClient.java**: Lets users input settings and communicate with the servers.
-2. **MD5CrackerServerImpl.java**: Handles the main logic for cracking the MD5 hashes.
-3. **MD5CrackerServerMain.java**: Starts the server program.
-4. **RemoteCracker.java**: Defines the methods that the client can use on the server.
+1. **MD5CrackerClient.java**: Client-side application to input parameters and interact with servers.
+2. **MD5CrackerServerImpl.java**: Implementation of the server logic for cracking MD5 hashes.
+3. **MD5CrackerServerMain.java**: Entry point for starting the server.
+4. **RemoteCracker.java**: Interface for defining server methods accessible by the client.
 
-## How to Set It Up
+## Setup Instructions
 
-### 1. Compile the Code
+### 1. Compile the Java Files
 
-Compile all the Java files to check for errors. Run this command in your terminal:
+Compile all Java files to ensure there are no syntax or compilation errors.
 
 ```bash
 javac *.java
@@ -34,7 +33,7 @@ javac *.java
 
 ### 2. Start the RMI Registry
 
-Start the RMI registry in the background. Use this command:
+Run the RMI Registry in the background. Open a terminal and execute the following command:
 
 ```bash
 rmiregistry &
@@ -42,62 +41,65 @@ rmiregistry &
 
 ### 3. Launch the Servers
 
-Run one or more servers to handle hash-cracking tasks. Use this command to start the server, replacing `<port>` with a port number (like `1099`):
+Start one or more servers using the `MD5CrackerServerMain` class. Each server will listen for client requests and perform hash cracking tasks.
+
+Run the server with the following command, replacing `<port>` with the desired port number (e.g., 1099):
 
 ```bash
 java MD5CrackerServerMain
 ```
 
-When the server starts, you will need to enter:
-- The hash you want to crack.
-- The length of the password.
-- The number of threads to use.
-- The server's address.
-- The server's port.
+When prompted, provide the following details for each server:
+- **Hash to crack**
+- **Password length**
+- **Number of threads**
+- **Server address**
+- **Server port**
 
 ### 4. Run the Client
 
-Run the client program to connect to the servers and start cracking the hash. Use this command:
+Execute the client application to connect to the servers and initiate the hash-cracking process.
+
+Run the client with:
 
 ```bash
 java MD5CrackerClient
 ```
 
-The client will ask you to enter:
-- **MD5 hash**: The hash you want to crack.
-- **Password length**: The length of the password (2 to 5 characters).
-- **Number of threads**: The number of threads to use (1 to 10).
-- **Number of servers**: How many servers to connect to (1 or 2).
+When prompted, provide the following inputs:
+- **MD5 hash to crack**: The hash you want to decrypt.
+- **Password length**: Length of the password (2 to 5 characters).
+- **Number of threads**: Number of threads for computation (1 to 10).
+- **Number of servers**: Total servers to connect to (1 or 2).
 
-For each server, you also need to provide:
-- **Server address**: For example, `localhost`.
-- **Server port**: The port number the server is using.
+For each server, input:
+- **Server address**: The server's address (e.g., `localhost`).
+- **Server port**: The port the server is listening on.
 
-### 5. See the Results
+### 5. View the Results
 
-The client will show you the results from the servers, including:
-- The cracked password (if found).
-- The time it took to crack the hash.
+The client will display results from each connected server, including the cracked password (if found) and the time taken for the computation.
 
 ### 6. Stop the Application
 
-Once the client finishes, it will stop on its own. If you want to stop the servers, press `Ctrl+C` in the terminal.
+Once the client displays results, the application terminates automatically. If needed, stop the servers by interrupting the terminal process (e.g., `Ctrl+C`).
 
-## Troubleshooting Tips
+## Troubleshooting
 
-- Make sure the RMI registry is running before starting the servers.
-- Check that the server address and port match what you entered in the client.
-- If you have network issues, ensure that firewalls aren’t blocking RMI communication.
+- Ensure that the RMI registry is running before starting the servers.
+- Verify that the server address and port match the details entered in the client.
+- Check for firewall or network issues that may block RMI communication.
 
 ## Notes
 
--The application supports up to two servers. If additional servers are required, the code can be modified accordingly.
--Ensure that the input MD5 hash and other parameters are valid to avoid unexpected errors.
+- The application supports up to two servers. If additional servers are required, the code can be modified accordingly.
+- Ensure that the input MD5 hash and other parameters are valid to avoid unexpected errors.
 
 ## Acknowledgment
 
--This project was developed by Aina Aisya in collaboration with an incredible team. I took the lead and contributed significantly to the overall code, ensuring the success of this application. Special thanks to my amazing teammates Jacyntha Eleanor, Anrianih Yusof, Nurul Fatihah, and Nur Izzatul Natasha from Universiti Malaysia Sarawak (UNIMAS) for their invaluable support and contributions.
+This project was developed by Aina Aisya in collaboration with an incredible team. I took the lead and contributed significantly to the overall code, ensuring the success of this application. Special thanks to my amazing teammates Jacyntha Eleanor, Anrianih Yusof, Nurul Fatihah, and Nur Izzatul Natasha from Universiti Malaysia Sarawak (UNIMAS) for their invaluable support and contributions.
 
 ## License
 
--This project is open-source and free to use. Contributions and improvements are welcome.
+This project is open-source and free to use. Contributions and improvements are welcome.
+
